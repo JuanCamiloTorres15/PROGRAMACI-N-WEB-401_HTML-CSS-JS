@@ -5,13 +5,16 @@
 <meta charset="UTF-8">
 <title>Registro de Usuario</title>
 
+<!-- CSS EXTERNO -->
 <link rel="stylesheet" href="estilos.css">
 
+<!-- CSS INTERNO -->
 <style>
 h2 {
     color: darkred;
 }
 
+/* HERENCIA */
 table {
     width: 100%;
 }
@@ -19,6 +22,7 @@ table {
 
 </head>
 
+<!-- ESTILO EN LÍNEA -->
 <body style="background-color: skyblue;">
 
 <center>
@@ -27,7 +31,7 @@ table {
 
 <h1 id="titulo">Registro de Usuario</h1>
 
-<form onsubmit="return validarFormulario()">
+<form>
 
 <table>
 
@@ -45,23 +49,97 @@ table {
 </tr>
 
 <tr class="campo">
+<td>Número de Documento:</td>
+<td>
+<input type="text" required pattern="[0-9]{6,12}" title="Solo números entre 6 y 12 dígitos">
+</td>
+</tr>
+
+<tr class="campo">
 <td>Nombres:</td>
 <td>
-<input type="text" id="nombre" required>
+<input type="text" required minlength="3" maxlength="64"
+pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]{3,64}">
+</td>
+</tr>
+
+<tr class="campo">
+<td>Apellidos:</td>
+<td>
+<input type="text" required minlength="3" maxlength="64"
+pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]{3,64}">
+</td>
+</tr>
+
+<tr class="campo">
+<td>Dirección:</td>
+<td>
+<input type="text" required>
+</td>
+</tr>
+
+<tr class="campo">
+<td>Teléfono Fijo:</td>
+<td>
+<input type="tel" pattern="[0-9]{7}">
+</td>
+</tr>
+
+<tr class="campo">
+<td>Teléfono Celular:</td>
+<td>
+<input type="tel" required pattern="[0-9]{10}">
 </td>
 </tr>
 
 <tr class="campo">
 <td>Correo Electrónico:</td>
 <td>
-<input type="email" id="correo" required>
+<input type="email" required
+pattern="[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}">
+</td>
+</tr>
+
+<tr class="campo">
+<td>Usuario:</td>
+<td>
+<input type="text" required
+pattern="[A-Za-z]{3,14}[0-9]{0,2}">
+</td>
+</tr>
+
+<tr class="campo">
+<td>Password:</td>
+<td>
+<input type="password" required maxlength="16"
+pattern="(?=(.*[A-Z]){1})(?=(.*[a-z]){2})(?=(.*[0-9]){5})(?=.*[!\?\-\+\/&\$\.]).{16}">
+</td>
+</tr>
+
+<tr class="campo">
+<td>Fecha de Inscripción:</td>
+<td>
+<input type="date" required min="2026-02-15" max="2026-03-10">
+</td>
+</tr>
+
+<tr class="campo">
+<td>Hobbies:</td>
+<td>
+<input type="checkbox"> Música<br>
+<input type="checkbox"> Deportes<br>
+<input type="checkbox"> Lectura<br>
+<input type="checkbox"> Arte
 </td>
 </tr>
 
 <tr>
 <td colspan="2" align="center">
+
+<!-- ESTILO EN LÍNEA -->
 <input type="submit" value="Enviar" style="padding:8px;">
 <input type="reset" value="Limpiar" style="padding:8px;">
+
 </td>
 </tr>
 
@@ -73,24 +151,11 @@ table {
 
 </center>
 
+
 <script>
-function validarFormulario() {
-    let nombre = document.getElementById("nombre").value;
-    let correo = document.getElementById("correo").value;
-
-    if (nombre.trim() === "") {
-        alert("El nombre no puede estar vacío");
-        return false;
-    }
-
-    if (!correo.includes("@")) {
-        alert("Correo inválido");
-        return false;
-    }
-
+document.querySelector("form").addEventListener("submit", function() {
     alert("Formulario enviado correctamente ✅");
-    return true;
-}
+});
 </script>
 
 </body>
