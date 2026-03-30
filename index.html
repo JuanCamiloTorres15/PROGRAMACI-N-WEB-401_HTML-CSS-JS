@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        h1 {
+            color: darkblue;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            padding: 10px 20px;
+            background-color: darkblue;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: blue;
+        }
+        .intro {
+            text-align: center;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h1 id="titulo">Bienvenido</h1>
+
+    <div class="intro">
+        <p>Aquí puedes navegar a diferentes secciones.</p>
+    </div>
+
+    <nav>
+        <a href="formulario1.2 (1).html">Registro de Usuario</a>
+        <a href="hoja de vida1.2.html">Hoja de Vida</a>
+    </nav>
+</div>
+
+<script>
+let enlaces = document.querySelectorAll("nav a");
+
+enlaces.forEach(link => {
+    link.addEventListener("click", function() {
+        alert("Estás navegando a otra sección 📄");
+    });
+});
+</script>
+
+</body>
+</html>

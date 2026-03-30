@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>Registro de Usuario</title>
+
+<link rel="stylesheet" href="estilos.css">
+
+<style>
+h2 {
+    color: darkred;
+}
+
+table {
+    width: 100%;
+}
+</style>
+
+</head>
+
+<body style="background-color: skyblue;">
+
+<center>
+
+<div class="contenedor">
+
+<h1 id="titulo">Registro de Usuario</h1>
+
+<form onsubmit="return validarFormulario()">
+
+<table>
+
+<tr class="campo">
+<td>Tipo de Documento:</td>
+<td>
+<select required>
+<option value="">Seleccione</option>
+<option>CC</option>
+<option>TI</option>
+<option>CE</option>
+<option>Pasaporte</option>
+</select>
+</td>
+</tr>
+
+<tr class="campo">
+<td>Nombres:</td>
+<td>
+<input type="text" id="nombre" required>
+</td>
+</tr>
+
+<tr class="campo">
+<td>Correo Electrónico:</td>
+<td>
+<input type="email" id="correo" required>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="center">
+<input type="submit" value="Enviar" style="padding:8px;">
+<input type="reset" value="Limpiar" style="padding:8px;">
+</td>
+</tr>
+
+</table>
+
+</form>
+
+</div>
+
+</center>
+
+<script>
+function validarFormulario() {
+    let nombre = document.getElementById("nombre").value;
+    let correo = document.getElementById("correo").value;
+
+    if (nombre.trim() === "") {
+        alert("El nombre no puede estar vacío");
+        return false;
+    }
+
+    if (!correo.includes("@")) {
+        alert("Correo inválido");
+        return false;
+    }
+
+    alert("Formulario enviado correctamente ✅");
+    return true;
+}
+</script>
+
+</body>
+</html>
